@@ -3,6 +3,7 @@ import { Message } from "./Message.js"
 
 const contentTarget = document.querySelector(".messages")
 const friendListSection = document.querySelector(".friends")
+const eventHub = document.querySelector(".container")
 
 /*
     COMPONENT FUNCTION
