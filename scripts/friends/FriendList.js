@@ -1,10 +1,8 @@
 import { useFriends } from "./FriendProvider.js"
 
-// DOM element where friends will be rendered
 const contentTarget = document.querySelector(".friends")
 const eventHub = document.querySelector(".container")
 
-// Function that renders a collection of friends
 const render = friendCollection => {
     contentTarget.innerHTML = `
         ${
@@ -20,7 +18,6 @@ const render = friendCollection => {
     `
 }
 
-// Component function for initial rendering of friends
 export const FriendList = () => {
     const appStateFriends = useFriends()
     render(appStateFriends)

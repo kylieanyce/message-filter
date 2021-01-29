@@ -5,17 +5,13 @@ const contentTarget = document.querySelector(".messages")
 const friendListSection = document.querySelector(".friends")
 const eventHub = document.querySelector(".container")
 
-/*
-    COMPONENT FUNCTION
-*/
+
 export const MessageList = () => {
     const allmessages = useMessages()
     render(allmessages)
 }
 
-/*
-    RENDERING FUNCTION
-*/
+//function that renders array to html-----------------------------------------------
 const render = messageArray => {
     const convertedMessages = messageArray.map(messageObject => {
         const messageHTML = Message(messageObject)
@@ -25,17 +21,19 @@ const render = messageArray => {
     contentTarget.innerHTML = combinedSections
 }
 
-// Listen for when a friend is selected
+//listens for event, gets value of target (classlist="friend"), gets messages from -----------
+//that object(s) and renders all messages with that classList to html------------------------------------
 friendListSection.addEventListener("change", changeEvent => {
-
     if (changeEvent.target.classList.contains("friend")) {
-        // Get messages for friend and render the list of messages
         const friendName = changeEvent.target.value
         const messages = getMessagesByFriend(friendName)
         render(messages)
     }
 })
 
+//listens for a customEvent, adds detail payload (a specific property)
+//to a variable that is then passed through the getMessagesByFriend function
+//The messages from that specific property are returned and rendered 
 eventHub.addEventListener("friendSelected", event => {
     const friendName = event.detail.friend
     const messages = getMessagesByFriend(friendName)

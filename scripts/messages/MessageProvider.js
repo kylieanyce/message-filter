@@ -21,14 +21,9 @@ export const getMessagesByFriend = friend => {
     const friendMessages = useMessages()
     const filteredMessages = friendMessages.filter(
         message => {
-            /*
-                Returns true or false. If true, current message
-                goes into new array.
-            */
             return message.friend === friend
         }
     )
-
     return filteredMessages
 }
 
