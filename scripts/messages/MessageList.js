@@ -1,4 +1,4 @@
-import { getMessagesByFriend } from "./MessageProvider.js"
+import { getMessagesByFriend, useMessages } from "./MessageProvider.js"
 import { Message } from "./Message.js"
 
 const contentTarget = document.querySelector(".messages")
@@ -9,7 +9,8 @@ const eventHub = document.querySelector(".container")
     COMPONENT FUNCTION
 */
 export const MessageList = () => {
-    render([])
+    const allmessages = useMessages()
+    render(allmessages)
 }
 
 /*
